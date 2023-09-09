@@ -77,7 +77,7 @@ class _NaviState extends State<Navi> {
         Container(
           color: const Color.fromRGBO(241, 222, 255, 1),
           alignment: Alignment.center,
-          child: const Text('Page 3'),
+          child: const RadioExample(),
         ),
       ][currentPageIndex],
     );
@@ -162,30 +162,90 @@ class PrimalCheck extends StatefulWidget {
 
 class _PrimalCheck extends State<PrimalCheck> {
   bool isChecked = false;
+  bool isChecked1 = false;
 
   @override
   Widget build(BuildContext context) {
-    Color getColor(Set<MaterialState> states) {
-      const Set<MaterialState> interactiveStates = <MaterialState>{
-        MaterialState.pressed,
-        MaterialState.hovered,
-        MaterialState.focused,
-      };
-      if (states.any(interactiveStates.contains)) {
-        return Colors.blue;
-      }
-      return Colors.red;
-    }
+    return Column(
+      children: <Widget>[
+        CheckboxListTile(
+          title: Text('Quiero cafe'),
+          checkColor: Colors.white,
+          value: isChecked,
+          onChanged: (bool? value) {
+            setState(() {
+              isChecked = value!;
+            });
+          },
+        ),
+        CheckboxListTile(
+          title: Text('Metroid Dread'),
+          checkColor: Colors.white,
+          value: isChecked1,
+          onChanged: (bool? value) {
+            setState(() {
+              isChecked1 = value!;
+            });
+          },
+        ),
+      ],
+    );
+  }
+}
 
-    return Checkbox(
-      checkColor: Colors.white,
-      fillColor: MaterialStateProperty.resolveWith(getColor),
-      value: isChecked,
-      onChanged: (bool? value) {
-        setState(() {
-          isChecked = value!;
-        });
-      },
+enum SingingCharacter { soledad, camina, lagrimas }
+
+class RadioExample extends StatefulWidget {
+  const RadioExample({super.key});
+
+  @override
+  State<RadioExample> createState() => _RadioExampleState();
+}
+
+class _RadioExampleState extends State<RadioExample> {
+  SingingCharacter? _character = SingingCharacter.soledad;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Soledad'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.soledad,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Camina'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.camina,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Envuelta en lagrimas frias'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.lagrimas,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+              });
+            },
+          ),
+        ),
+      ],
     );
   }
 }
