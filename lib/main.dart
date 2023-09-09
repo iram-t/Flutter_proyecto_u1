@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:project_1/page/navigator.dart';
+import 'package:project_1/page/pages.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,6 +15,11 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: const Color.fromRGBO(223, 71, 253, 0.3),
       ),
       home: const Navi(),
+      routes: {
+        'page1': (context) => Page1(),
+        'page2': (context) => Page2(),
+        'page3': (context) => Page3(),
+      },
     );
   }
 }
@@ -34,7 +39,7 @@ class _NaviState extends State<Navi> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
-        backgroundColor: const Color.fromRGBO(227, 163, 255, 1),
+        backgroundColor: const Color.fromARGB(255, 233, 181, 255),
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -66,16 +71,16 @@ class _NaviState extends State<Navi> {
       // Dentro de cada pestaña
       body: <Widget>[
         Container(
-          color: const Color.fromRGBO(241, 222, 255, 1),
+          color: const Color.fromARGB(255, 245, 232, 255),
           alignment: Alignment.center,
           child: const DialogXP(),
         ),
         Container(
-          color: const Color.fromRGBO(241, 222, 255, 1),
+          color: const Color.fromARGB(255, 245, 232, 255),
           child: const PrimalCheck(),
         ),
         Container(
-          color: const Color.fromRGBO(241, 222, 255, 1),
+          color: const Color.fromARGB(255, 245, 232, 255),
           alignment: Alignment.center,
           child: const RadioExample(),
         ),
@@ -90,10 +95,10 @@ class _DrawState extends StatelessWidget {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: const <Widget>[
-          DrawerHeader(
+        children: <Widget>[
+          const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Color.fromRGBO(215, 123, 255, 1),
             ),
             child: Text(
               'Home',
@@ -104,16 +109,28 @@ class _DrawState extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.message),
-            title: Text('Messages'),
+            leading: const Icon(Icons.games_outlined),
+            title: const Text('Juegos'),
+            onTap: () {
+              final route = MaterialPageRoute(builder: (context) => Page1());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Profile'),
+            leading: const Icon(Icons.forum_outlined),
+            title: const Text('Formulario'),
+            onTap: () {
+              final route = MaterialPageRoute(builder: (context) => Page2());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: const Icon(Icons.restore_from_trash_outlined),
+            title: const Text('Basura'),
+            onTap: () {
+              final route = MaterialPageRoute(builder: (context) => Page3());
+              Navigator.push(context, route);
+            },
           ),
         ],
       ),
@@ -169,7 +186,7 @@ class _PrimalCheck extends State<PrimalCheck> {
     return Column(
       children: <Widget>[
         CheckboxListTile(
-          title: Text('Quiero cafe'),
+          title: const Text('Quiero cafe'),
           checkColor: Colors.white,
           value: isChecked,
           onChanged: (bool? value) {
@@ -179,7 +196,7 @@ class _PrimalCheck extends State<PrimalCheck> {
           },
         ),
         CheckboxListTile(
-          title: Text('Metroid Dread'),
+          title: const Text('Metroid Dread'),
           checkColor: Colors.white,
           value: isChecked1,
           onChanged: (bool? value) {
@@ -246,43 +263,6 @@ class _RadioExampleState extends State<RadioExample> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CardExample extends StatelessWidget {
-  const CardExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const ListTile(
-              leading: Icon(Icons.album),
-              title: Text('The Enchanted Nightingale'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () {/* ... */},
-                ),
-                const SizedBox(width: 8),
-                TextButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () {/* ... */},
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
