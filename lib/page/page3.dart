@@ -23,19 +23,21 @@ class Page3 extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         // A fixed-height child.
-                        color: const Color(0xffeeee00), // Yellow
+                        color:
+                            const Color.fromARGB(255, 158, 252, 255), // Yellow
                         height: 120.0,
                         alignment: Alignment.center,
-                        child: const Text('Fixed Height Content'),
+                        child: const Icon(Icons.cloud_outlined),
                       ),
                       Expanded(
                         // A flexible child that will grow to fit the viewport but
                         // still be at least as big as necessary to fit its contents.
                         child: Container(
-                          color: const Color(0xffee0000), // Red
+                          color:
+                              const Color.fromARGB(255, 129, 255, 185), // Red
                           height: 120.0,
                           alignment: Alignment.center,
-                          child: const Text('Flexible Content'),
+                          child: const Icon(Icons.terrain_outlined),
                         ),
                       ),
                     ],
