@@ -25,7 +25,10 @@ class Page1 extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('COMPRAR JUEGO'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Se ha comprado el juego')));
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(
@@ -45,7 +48,10 @@ class Page1 extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('COMPRAR JUEGO'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Se ha comprado el juego')));
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(
@@ -65,7 +71,10 @@ class Page1 extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('COMPRAR JUEGO'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Se ha comprado el juego')));
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(
@@ -85,7 +94,10 @@ class Page1 extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('COMPRAR JUEGO'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Se ha comprado el juego')));
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(
@@ -105,7 +117,10 @@ class Page1 extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('COMPRAR JUEGO'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Se ha comprado el juego')));
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(
@@ -125,7 +140,10 @@ class Page1 extends StatelessWidget {
                 children: <Widget>[
                   TextButton(
                     child: const Text('COMPRAR JUEGO'),
-                    onPressed: () {/* ... */},
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Se ha comprado el juego')));
+                    },
                   ),
                   const SizedBox(width: 8),
                   TextButton(
